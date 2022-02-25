@@ -1,0 +1,25 @@
+.filter {
+  float: right;
+  font-size: 80%;
+  font-weight: normal;
+  margin-top: -1em;
+
+  color: rgb(227, 236, 243);
+  text-shadow: none;
+  background-color: #404d6b;
+}
+
+.filter select {
+  display: inline;
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 2%;
+
+  color: #fff;
+  border: 6px inset #54658d;
+  background-color: #1a1f2c;
+}
+
+.filter select option {
+  font-weight: bold;
+}

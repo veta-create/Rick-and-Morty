@@ -1,0 +1,26 @@
+.pagination { 
+  grid-area: pagination;
+
+  background-color: #abb0bd;
+}
+
+.pagination .left, .pagination .right, .pagination .pages {
+  display: inline-block;
+  margin: 0;
+}
+
+.pagination .left {
+  margin-right: 2em;
+}
+
+.pagination .right {
+  margin-left: 2em;
+}
+
+.pagination .pages {
+  font-size: 150%;
+}
+
+.pagination .pages .page {
+  display: inherit;
+}
