@@ -6,11 +6,11 @@ import Header from './components/Header/Header'
 import Pagination from './components/Pagination/Pagination'
 import Footer from './components/Footer/Footer'
 
-const App = () => {
+const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <CardsContent />
+      <CardsContent cardsData={props.cardsData}/>
       <div className='forRick'>
         <img src={rick} className='rick'></img>
       </div>

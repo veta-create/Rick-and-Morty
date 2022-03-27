@@ -2,21 +2,13 @@ import React from 'react'
 import s from './CardsContent.module.css'
 import Card from './Card/Card'
 
-const CardsContent = () => {
+const CardsContent = (props) => {
+  let cards = props.cardsData.map(card => <Card id={card.id} name={card.name} status={card.status}
+     species={card.species} gender={card.gender} img={card.img} />)
+
   return (
-    <div className={s.content}>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+    <div className={s.content}>   
+      {cards}
     </div>
   )
 }
