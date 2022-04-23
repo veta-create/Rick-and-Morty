@@ -1,8 +1,6 @@
 .filter {
-  float: right;
   font-size: 80%;
   font-weight: normal;
-  margin-top: -1em;
 
   color: rgb(227, 236, 243);
   text-shadow: none;
@@ -22,4 +20,34 @@
 
 .filter select option {
   font-weight: bold;
+}
+
+.filter .title {
+  background-color: #404d6b;
+}
+
+.filter .byName, .byStatus, .bySpecies {
+  display: inline-block;
+  font-size: 65%;
+}
+
+.filter .byName {
+  margin-bottom: 2%;
+  margin-right: 10%;
+}
+
+.filter .byName input {
+  font-weight: bold;
+  border: none;
+
+  color: #fff;
+  background-color: #1a1f2c;
+  border: 6px inset #54658d;
+}
+
+.filter .bySpecies {
+}
+
+.filter .byStatus {
+  margin-right: 20%;
 }

@@ -1,11 +1,22 @@
 .header {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  grid-template-areas: 'title' 'filter';
   grid-area: header;
   font-size: 200%;
   font-weight: bold;
 
   color: rgb(227, 236, 243);
   text-shadow: 0 0 30px #3a0155;
-  background-color: #404d6b;
+  background-color: #485779;
   box-shadow: 0 0 10px 7px #1e2431;
 }
 
+.header .title {
+  grid-area: 'title';
+  margin-top: 4%;
+}
+
+.header .filter {
+  grid-area: 'filter';
+}
