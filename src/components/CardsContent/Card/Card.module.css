@@ -5,11 +5,10 @@
   margin-top: 1%;
   text-align: left;
   font-weight: bold;
-  border-radius: 30px;
 
   color: #fff;
   text-shadow: 0 0 10px #00d300;
-  background-image: url(/home/violetta/Desktop/frontend/react/rick-and-morty/src/assets/images/card.jpg);
+  background-image: url(C:\Users\Veta\Desktop\front\Rick-and-Morty\src\assets\images\card.jpg);
   box-shadow: 0 0 30px rgb(40, 110, 81);
 }
 
@@ -17,10 +16,13 @@
   transform: scale(1.1);
 }
 
+.card .photo {
+  height: 60%;
+}
+
 .card .photo img {
-  height: 8.5em;
+  height: 95%;
   width: 100%;
-  border-radius: 30px 30px 0 0;
 }
 
 .card .info {
