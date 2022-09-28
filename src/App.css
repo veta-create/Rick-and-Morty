@@ -1,9 +1,9 @@
 .app-wrapper {
   display: grid;
-  grid-template-rows: 1fr 9fr 1fr 1fr;
-  grid-template-columns: 6fr 3fr;
-  grid-template-areas: 'header header' 'cardsContent rick' 'pagination rick' 'footer rick';
   position: fixed;
+  grid-template-columns: 7fr 3fr;
+  grid-template-rows: 18% 82%;
+  grid-template-areas: 'header header' 'cardsContent rick';
   width: 100vw;
   height: 100vh;
   text-align: center;
