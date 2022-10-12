@@ -1,22 +1,22 @@
 .filter {
+  height: 250%;
   font-size: 80%;
   font-weight: normal;
-  height: 250%;
 
   color: rgb(227, 236, 243);
+  background-color: hsl(222, 25%, 34%);
   text-shadow: none;
-  background-color: #404d6b;
 }
 
 .filter select {
   display: inline;
   width: 100%;
-  font-weight: bold;
   margin-bottom: 2%;
+  font-weight: bold;
 
   color: #fff;
-  border: 6px inset #54658d;
   background-color: #1a1f2c;
+  border: 6px inset #54658d;
 }
 
 .filter select option {
@@ -33,20 +33,16 @@
 }
 
 .filter .byName {
-  margin-bottom: 2%;
   margin-right: 10%;
+  margin-bottom: 2%;
 }
 
 .filter .byName input {
   font-weight: bold;
-  border: none;
 
   color: #fff;
   background-color: #1a1f2c;
   border: 6px inset #54658d;
-}
-
-.filter .bySpecies {
 }
 
 .filter .byStatus {

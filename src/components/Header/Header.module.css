@@ -1,15 +1,15 @@
 .header {
   display: grid;
+  grid-area: header;
+  grid-template-areas: 'title filter' 'pagination filter';
   grid-template-columns: 6fr 4fr;
   grid-template-rows: 40% 60%;
-  grid-template-areas: 'title filter' 'pagination filter';
-  grid-area: header;
-  font-size: 200%;
+  font-size: 2rem;
   font-weight: bold;
 
   color: rgb(227, 236, 243);
-  text-shadow: 0 0 30px #3a0155;
   background-color: #485779;
+  text-shadow: 0 0 30px #3a0155;
   box-shadow: 0 0 10px 7px #1e2431;
 }
 
