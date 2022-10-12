@@ -14,6 +14,6 @@ let rerender = () => {ReactDOM.render(
 
 rerender(store)
 
-subscribe(rerender)
+store.subscribe(rerender)
 
 reportWebVitals()
