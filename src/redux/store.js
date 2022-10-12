@@ -1,4 +1,5 @@
-import { rerender } from "../rerender"
+let rerender = () => {
+}
 
 let store = {
   state:
@@ -72,9 +73,9 @@ let store = {
 
   },
   switchActiveFilter(id, value) {
-    if(id == '1') {
+    if(id === '1') {
       store.state.filterData.statusFilter.activeFilter = value
-    } else if (id == '2'){
+    } else if (id === '2'){
       store.state.filterData.speciesFilter.activeFilter = value
     }
     rerender(store)
@@ -85,4 +86,7 @@ let store = {
   }
 }
 
+export const subscribe = (observer) => {
+  rerender = observer
+}
 export default store

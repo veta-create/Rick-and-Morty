@@ -14,7 +14,7 @@ const App = (props) => {
       />
       <CardsContent cardsData={props.store.state.cardsData} />
       <div className="forRick">
-        <img src={rick} className="rick"></img>
+        <img src={rick} alt="Rick" className="rick"></img>
       </div>
     </div>
   );

@@ -20,13 +20,13 @@ const Filter = (props) => {
       <div className={s.byStatus}>
         status:
         <select id='1' value={props.filterData.statusFilter.activeFilter} onChange={handleSelectChange}>
-          {props.filterData.statusFilter.filters.map(o => <option id={o.id} value={o.value}>{o.name}</option>)}
+          {props.filterData.statusFilter.filters.map(o => <option key={o.id} id={o.id} value={o.value}>{o.name}</option>)}
         </select>
       </div>
       <div className={s.bySpecies}>
         species:
         <select id='2' value={props.filterData.speciesFilter.activeFilter} onChange={handleSelectChange}>
-          {props.filterData.speciesFilter.filters.map(o => <option id={o.id} value={o.value}>{o.name}</option>)}
+          {props.filterData.speciesFilter.filters.map(o => <option key={o.id} id={o.id} value={o.value}>{o.name}</option>)}
         </select>
       </div>
       <div className={s.byName}>name: <input value={props.filterData.nameFilter.name} onChange={nandleInputChange}></input></div>

@@ -3,12 +3,16 @@
   height: 45%;
   width: 15%;
   margin-top: 1%;
+  font-size: 1rem;
   text-align: left;
   font-weight: bold;
+  cursor: pointer;
 
   color: #fff;
   text-shadow: 0 0 10px #00d300;
   background-image: url(C:\Users\Veta\Desktop\front\Rick-and-Morty\src\assets\images\card.jpg);
+  background-repeat: no-repeat;
+  background-position: 40% 60%;
   box-shadow: 0 0 30px rgb(40, 110, 81);
 }
 
@@ -27,4 +31,5 @@
 
 .card .info {
   margin-left: 5%;
+  max-width: 100%;
 }

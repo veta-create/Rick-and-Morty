@@ -6,7 +6,7 @@ import right from '../../assets/images/right.png'
 const Pagination = () => {
   return (
     <div className={s.pagination}>
-      <div className={s.left}><img src={left}></img></div>
+      <div className={s.left}><img src={left} alt="back"></img></div>
       ...
       <div className={s.pages}>
         <div className={s.page}>1</div>
@@ -16,7 +16,7 @@ const Pagination = () => {
         <div className={s.page}>5</div>
       </div>
       ...
-      <div className={s.right}><img src={right}></img></div>
+      <div className={s.right}><img src={right} alt="next"></img></div>
     </div>
   )
 }
