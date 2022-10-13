@@ -9,11 +9,7 @@ const Header = (props) => {
       <div className={s.title}>Rick Database</div>
       <Pagination />
       <div className={s.filter}>
-        <Filter
-          filterData={props.filterData}
-          switchActiveFilter={props.switchActiveFilter}
-          changeNameText={props.changeNameText}
-        />
+        <Filter filterData={props.filterData} dispatch={props.dispatch} />
       </div>
     </div>
   );

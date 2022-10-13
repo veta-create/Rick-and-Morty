@@ -10,8 +10,7 @@ const App = (props) => {
     <div className="app-wrapper">
       <Header
         filterData={props.store.getState().filterData}
-        switchActiveFilter={props.store.switchActiveFilter.bind(store)}
-        changeNameText={props.store.changeNameText.bind(store)}
+        dispatch={props.store.dispatch.bind(store)}
       />
       <CardsContent cardsData={props.store.getState().cardsData} />
       <div className="forRick">
