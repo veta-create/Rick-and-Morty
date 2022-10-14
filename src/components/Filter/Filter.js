@@ -1,5 +1,5 @@
 import React from "react";
-import { changeNameFilterTextAC, switchActiveFilterAC } from "../../redux/store";
+import { changeNameFilterTextAC, switchActiveFilterAC } from "../../redux/filterReducer";
 import s from "./Filter.module.css";
 
 const Filter = (props) => {
@@ -9,7 +9,7 @@ const Filter = (props) => {
     props.dispatch(switchActiveFilterAC(id, value));
   };
 
-  const nandleInputChange = (event) => {
+  const handleInputChange = (event) => {
     let newText = event.target.value;
     props.dispatch(changeNameFilterTextAC(newText));
   };
@@ -49,7 +49,7 @@ const Filter = (props) => {
         name:{" "}
         <input
           value={props.filterData.nameFilter.name}
-          onChange={nandleInputChange}
+          onChange={handleInputChange}
         ></input>
       </div>
       {/* <select value={props.filterData.activeFilter} onChange={handleSelectChange}>

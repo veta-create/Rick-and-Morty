@@ -1,5 +1,4 @@
-const SWITCH_ACTIVE_FILTER = "SWITCH_ACTIVE_FILTER";
-const CHANGE_NAME_FILTER_TEXT = "CHANGE_NAME_FILTER_TEXT";
+import filterReducer from "./filterReducer";
 
 let store = {
   _state: {
@@ -167,29 +166,9 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === SWITCH_ACTIVE_FILTER) {
-      if (action.id === "byStatus") {
-        this._state.filterData.statusFilter.activeFilter = action.value;
-      } else if (action.id === "bySpecies") {
-        this._state.filterData.speciesFilter.activeFilter = action.value;
-      }
-      this._callSubcriber(store);
-    } else if (action.type === CHANGE_NAME_FILTER_TEXT) {
-      this._state.filterData.nameFilter.name = action.value;
-      this._callSubcriber(store);
-    }
+    this._state.filterData = filterReducer(this._state.filterData, action);
+    this._callSubcriber(store);
   },
 };
-
-export const switchActiveFilterAC = (id, value) => ({
-  type: SWITCH_ACTIVE_FILTER,
-  id: id,
-  value: value,
-});
-
-export const changeNameFilterTextAC = (newText) => ({
-  type: CHANGE_NAME_FILTER_TEXT,
-  value: newText,
-});
 
 export default store;
