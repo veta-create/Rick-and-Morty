@@ -6,11 +6,10 @@ import Header from "./components/Header/Header";
 import store from "./redux/store";
 
 const App = (props) => {
-  debugger
   return (
     <div className="app-wrapper">
       <Header
-        filterData={props.state.filterData}
+        store={props.store}
         dispatch={props.store.dispatch.bind(store)}
       />
       <CardsContent cardsData={props.state.cardsData} />

@@ -3,15 +3,15 @@ import { changeNameFilterTextAC, switchActiveFilterAC } from "../../redux/filter
 import s from "./Filter.module.css";
 
 const Filter = (props) => {
-  const handleSelectChange = (event) => {
+  const onSwitchingFilters = (event) => {
     let value = event.target.value;
     let id = event.target.id;
-    props.dispatch(switchActiveFilterAC(id, value));
+    props.switchingFilters(id, value)
   };
 
-  const handleInputChange = (event) => {
+  const onChangeFilterByName = (event) => {
     let newText = event.target.value;
-    props.dispatch(changeNameFilterTextAC(newText));
+    props.changeFilterByName(newText)
   };
 
   return (
@@ -22,7 +22,7 @@ const Filter = (props) => {
         <select
           id="byStatus"
           value={props.filterData.statusFilter.activeFilter}
-          onChange={handleSelectChange}
+          onChange={onSwitchingFilters}
         >
           {props.filterData.statusFilter.filters.map((o) => (
             <option key={o.id} id={o.id} value={o.value}>
@@ -36,7 +36,7 @@ const Filter = (props) => {
         <select
           id="bySpecies"
           value={props.filterData.speciesFilter.activeFilter}
-          onChange={handleSelectChange}
+          onChange={onSwitchingFilters}
         >
           {props.filterData.speciesFilter.filters.map((o) => (
             <option key={o.id} id={o.id} value={o.value}>
@@ -49,7 +49,7 @@ const Filter = (props) => {
         name:{" "}
         <input
           value={props.filterData.nameFilter.name}
-          onChange={handleInputChange}
+          onChange={onChangeFilterByName}
         ></input>
       </div>
       {/* <select value={props.filterData.activeFilter} onChange={handleSelectChange}>
