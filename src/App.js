@@ -6,13 +6,14 @@ import Header from "./components/Header/Header";
 import store from "./redux/store";
 
 const App = (props) => {
+  debugger
   return (
     <div className="app-wrapper">
       <Header
-        filterData={props.store.getState().filterData}
+        filterData={props.state.filterData}
         dispatch={props.store.dispatch.bind(store)}
       />
-      <CardsContent cardsData={props.store.getState().cardsData} />
+      <CardsContent cardsData={props.state.cardsData} />
       <div className="forRick">
         <img src={rick} alt="Rick" className="rick"></img>
       </div>
