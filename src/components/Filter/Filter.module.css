@@ -8,9 +8,19 @@
   text-shadow: none;
 }
 
+.filter .filters {
+  display: grid;
+  grid-template-areas: "status species" "name name";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-row-gap: 20px;
+  align-items: end;
+}
+
 .filter select {
   display: inline;
-  width: 100%;
+  width: 60%;
+  max-width: 350px;
   margin-bottom: 2%;
   font-weight: bold;
 
@@ -27,14 +37,19 @@
   background-color: #404d6b;
 }
 
-.filter .byName, .byStatus, .bySpecies {
+.filter .byName,
+.byStatus,
+.bySpecies {
   display: inline-block;
   font-size: 65%;
 }
 
+.filter .bySpecies {
+  grid-area: species;
+}
+
 .filter .byName {
-  margin-right: 10%;
-  margin-bottom: 2%;
+  grid-area: name;
 }
 
 .filter .byName input {
@@ -46,5 +61,5 @@
 }
 
 .filter .byStatus {
-  margin-right: 20%;
+  grid-area: status;
 }
