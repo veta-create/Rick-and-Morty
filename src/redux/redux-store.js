@@ -6,4 +6,6 @@ const reducers = combineReducers({ filterData: filterReducer, cardsData: cardsRe
 
 let store = createStore(reducers);
 
+window.store = store
+
 export default store

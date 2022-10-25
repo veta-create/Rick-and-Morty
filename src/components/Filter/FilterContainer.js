@@ -1,20 +1,31 @@
 import React from "react";
-import { changeNameFilterTextAC, switchActiveFilterAC } from "../../redux/filterReducer";
+import { connect } from "react-redux";
+import {
+  changeNameFilterTextAC,
+  switchActiveFilterAC,
+} from "../../redux/filterReducer";
 import Filter from "./Filter";
 
-const FilterContainer = (props) => {
-  let filterData = props.store.getState().filterData
-  const switchingFilters = (id, value) => {
-    props.store.dispatch(switchActiveFilterAC(id, value));
+const mapStateToProps = (state) => {
+  return {
+    filterData: state.filterData,
   };
-
-  const changeFilterByName = (newText) => {
-    props.store.dispatch(changeNameFilterTextAC(newText));
-  };
-
-  return (
-    <Filter switchingFilters={switchingFilters} changeFilterByName={changeFilterByName} filterData={filterData}/>
-  );
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    switchingFilters: (id, value) => {
+      dispatch(switchActiveFilterAC(id, value));
+    },
+    changeFilterByName: (newText) => {
+      dispatch(changeNameFilterTextAC(newText));
+    },
+  };
+};
+
+const FilterContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Filter);
 
 export default FilterContainer;
