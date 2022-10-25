@@ -1,12 +1,24 @@
-import { connect } from "react-redux"
-import CardsContent from "./CardsContent"
+import { connect } from "react-redux";
+import { setCharactersAC } from "../../redux/cardsReducer";
+import CardsContent from "./CardsContent";
 
-  let mapStateToProps = (state) => {
-    return {
-        cardsData: state.cardsData
-    }
-  }
+const mapStateToProps = (state) => {
+  return {
+    characters: state.cardsData.characters,
+  };
+};
 
-  const CardsContentContainer = connect(mapStateToProps)(CardsContent)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCharacters: (characters) => {
+      dispatch(setCharactersAC(characters));
+    },
+  };
+};
 
-  export default CardsContentContainer
+const CardsContentContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CardsContent);
+
+export default CardsContentContainer;

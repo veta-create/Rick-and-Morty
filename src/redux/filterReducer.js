@@ -60,19 +60,19 @@ const initialState = {
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case SWITCH_ACTIVE_FILTER:
-      let stateCopy = {...state}
-      stateCopy.statusFilter = {...state.statusFilter}
       if (action.id === "byStatus") {
-        stateCopy.statusFilter.activeFilter = action.value;
+        return {
+          ...state,
+          ...(state.statusFilter.activeFilter = action.value),
+        };
       } else if (action.id === "bySpecies") {
-        stateCopy.speciesFilter.activeFilter = action.value;
+        return {
+          ...state,
+          ...(state.speciesFilter.activeFilter = action.value),
+        };
       }
-      return stateCopy;
     case CHANGE_NAME_FILTER_TEXT:
-      let stateC = {...state}
-      stateC.nameFilter.name = {...state.nameFilter}
-      stateC.nameFilter.name = action.value;
-      return stateC;
+      return { ...state, ...(state.nameFilter.name = action.value) };
     default:
       return state;
   }

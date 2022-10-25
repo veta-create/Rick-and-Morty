@@ -1,5 +1,7 @@
-const initialState = [
-  {
+const SET_CHARACTERS = "SET_CHARACTERS";
+
+const initialState = {
+  characters: [ {
     id: 1,
     name: "Rick",
     status: "alive",
@@ -94,11 +96,21 @@ const initialState = [
     species: "Humanoid",
     gender: "male",
     img: "www",
-  },
-]
+  },]
+}
 
 const cardsReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case SET_CHARACTERS:
+      return {...state, ...state.characters = [...state.characters, action.characters]}
+    default:
+      return state;
+  }
 };
+
+export const setCharactersAC = (characters) => ({
+  type: SET_CHARACTERS,
+  characters: characters,
+});
 
 export default cardsReducer;
