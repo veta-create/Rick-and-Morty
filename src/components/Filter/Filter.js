@@ -1,8 +1,4 @@
 import React from "react";
-import {
-  changeNameFilterTextAC,
-  switchActiveFilterAC,
-} from "../../redux/filterReducer";
 import s from "./Filter.module.css";
 
 const Filter = (props) => {

@@ -1,7 +1,11 @@
 .card {
   display: block;
   width: 15%;
+  min-width: 145px;
+  max-width: 230px;
   height: 45%;
+  min-height: 270px;
+  max-height: 320px;
   margin-top: 1%;
   font-size: 1rem;
   font-weight: bold;

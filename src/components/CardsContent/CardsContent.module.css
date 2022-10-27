@@ -3,6 +3,16 @@
   grid-area: cardsContent;
   justify-content: space-around;
   flex-wrap: wrap;
+  overflow-y: scroll;
 
   background-color: #212837;
+}
+
+::-webkit-scrollbar {
+  width: 30px;
+  background-color: #171c27;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FFFFFF;
 }

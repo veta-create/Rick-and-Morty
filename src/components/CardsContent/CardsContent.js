@@ -1,108 +1,13 @@
 import React from "react";
 import s from "./CardsContent.module.css";
 import Card from "./Card/Card";
-import { setCharactersAC } from "../../redux/cardsReducer";
+import axios from "axios";
 
 const CardsContent = (props) => {
   if (props.characters.length === 0) {
-    props.setCharacters(
-      {
-        id: 1,
-        name: "Rick",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 2,
-        name: "Mo",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 3,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 4,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 5,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 6,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 7,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 8,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 9,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 10,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 11,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      },
-      {
-        id: 12,
-        name: "Morty",
-        status: "alive",
-        species: "Humanoid",
-        gender: "male",
-        img: "www",
-      }
-    );
+    axios.get("https://rickandmortyapi.com/api/character").then((response) => {
+      props.setCharacters(response.data.results);
+    });
   }
 
   let cards = props.characters.map((card) => (
@@ -113,7 +18,7 @@ const CardsContent = (props) => {
       status={card.status}
       species={card.species}
       gender={card.gender}
-      img={card.img}
+      image={card.image}
     />
   ));
 
