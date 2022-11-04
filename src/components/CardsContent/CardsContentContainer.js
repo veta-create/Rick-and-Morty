@@ -5,6 +5,7 @@ import CardsContent from "./CardsContent";
 const mapStateToProps = (state) => {
   return {
     characters: state.cardsData.characters,
+    currentPage: state.paginationData.currentPage,
   };
 };
 

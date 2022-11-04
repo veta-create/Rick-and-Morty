@@ -1,12 +1,100 @@
-.pagination { 
+.pagination {
   grid-area: pagination;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.pagination .left, .pagination .right, .pagination .pages {
-  display: inline-block;
+.pagination .pages {
+  display: flex;
   margin: 0;
 }
 
 .pagination .pages .page {
-  display: inherit;
+  cursor: pointer;
+  margin-left: 2px;
+}
+
+.pagination .pages .selected {
+  font-size: 1.8rem;
+
+  color: rgb(159, 155, 155);
+}
+
+.next,
+.prev {
+  cursor: pointer;
+  position: relative;
+  width: 80px;
+  height: 50px;
+  margin: 20px;
+}
+
+.prev {
+  transform: rotate(180deg);
+}
+
+.next div,
+.prev div {
+  position: relative;
+  top: 20px;
+  width: 90px;
+  height: 10px;
+  background-color: #6188ad;
+  left: 0;
+  display: block;
+}
+.next div::after,
+.prev div::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  top: -11px;
+  right: -8px;
+  background-color: #6188ad;
+  transform: rotate(45deg);
+}
+.next div::before,
+.prev div::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 10px;
+  top: 11px;
+  right: -8px;
+  background-color: #6188ad;
+  transform: rotate(-45deg);
+}
+.next:hover {
+  animation: next 1s linear infinite;
+}
+
+.prev:hover {
+  animation: prev 1s linear infinite;
+}
+@keyframes next {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 10px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes prev {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 10px;
+  }
+  100% {
+    right: 0;
+  }
 }
