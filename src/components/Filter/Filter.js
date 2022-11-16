@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import s from "./Filter.module.css";
 
@@ -20,7 +21,7 @@ const Filter = (props) => {
         <div className={s.byStatus}>
           status:
           <select
-            id="byStatus"
+            id="status"
             value={props.filterData.statusFilter.activeFilter}
             onChange={onSwitchingFilters}
           >
@@ -34,7 +35,7 @@ const Filter = (props) => {
         <div className={s.bySpecies}>
           species:
           <select
-            id="bySpecies"
+            id="species"
             value={props.filterData.speciesFilter.activeFilter}
             onChange={onSwitchingFilters}
           >

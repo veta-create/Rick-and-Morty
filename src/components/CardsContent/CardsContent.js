@@ -1,19 +1,7 @@
-import React from "react";
-import s from "./CardsContent.module.css";
 import Card from "./Card/Card";
-import axios from "axios";
+import s from "./CardsContent.module.css";
 
 const CardsContent = (props) => {
-  if (props.characters.length === 0) {
-    axios
-      .get(
-        `https://rickandmortyapi.com/api/character/?page=${props.currentPage}`
-      )
-      .then((response) => {
-        props.setCharacters(response.data.results);
-      });
-  }
-
   let cards = props.characters.map((card) => (
     <Card
       key={card.id}
@@ -25,7 +13,6 @@ const CardsContent = (props) => {
       image={card.image}
     />
   ));
-
   return <div className={s.content}>{cards}</div>;
 };
 

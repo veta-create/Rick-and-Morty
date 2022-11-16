@@ -5,28 +5,30 @@ import axios from "axios";
 
 const Pagination = (props) => {
   let pages = [];
-  for (let i = 0; i < props.totalPagesCount; i++) {
+  for (let i = 0; i < props.paginationSize; i++) {
     pages.push(i + 1);
   }
 
-  const onCurrentPageChanged = (pageNumber) => {
-    props.setCurrentPage(pageNumber);
-    axios
-      .get(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
-      .then((response) => {
-        props.setCharacters(response.data.results);
-      });
-  };
   return (
     <div className={s.pagination}>
-      <div className={s.prev}>
-        <div></div>
-      </div>
-
+      {props.arrowBackState ? (
+        <div
+          onClick={(e) => {
+            props.onCurrentPageChanged(props.currentPage - 1);
+          }}
+          className={s.prev}
+        >
+          <div></div>
+        </div>
+      ) : (
+        ""
+      )}
       <div className={s.pages}>
         {pages.map((p) => (
           <span
-            onClick={(e) => {onCurrentPageChanged(p)}}
+            onClick={(e) => {
+              props.onCurrentPageChanged(p);
+            }}
             className={cn(s.page, p === props.currentPage && s.selected)}
           >
             {p}
@@ -34,9 +36,18 @@ const Pagination = (props) => {
         ))}
       </div>
 
-      <div className={s.next}>
-        <div></div>
-      </div>
+      {props.arrowNextState ? (
+        <div
+          onClick={(e) => {
+            props.onCurrentPageChanged(props.currentPage + 1);
+          }}
+          className={s.next}
+        >
+          <div></div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

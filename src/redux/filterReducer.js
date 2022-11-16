@@ -60,12 +60,12 @@ const initialState = {
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case SWITCH_ACTIVE_FILTER:
-      if (action.id === "byStatus") {
+      if (action.id === "status") {
         return {
           ...state,
           ...(state.statusFilter.activeFilter = action.value),
         };
-      } else if (action.id === "bySpecies") {
+      } else if (action.id === "species") {
         return {
           ...state,
           ...(state.speciesFilter.activeFilter = action.value),

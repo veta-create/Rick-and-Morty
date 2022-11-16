@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { setCharactersAC } from "../../redux/cardsReducer";
-import CardsContent from "./CardsContent";
+import { setTotalPagesCountAC } from "../../redux/paginationReducer";
+import CardsContentAPI from "./CardsContentAPI";
 
 const mapStateToProps = (state) => {
   return {
@@ -14,12 +15,15 @@ const mapDispatchToProps = (dispatch) => {
     setCharacters: (characters) => {
       dispatch(setCharactersAC(characters));
     },
+    setTotalPagesCount: (totalPagesCount) => {
+      dispatch(setTotalPagesCountAC(totalPagesCount));
+    },
   };
 };
 
 const CardsContentContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(CardsContent);
+)(CardsContentAPI);
 
 export default CardsContentContainer;
