@@ -1,6 +1,6 @@
+import Preloader from "../common/Preloader/Preloader";
 import Card from "./Card/Card";
 import s from "./CardsContent.module.css";
-import preloader from "../../assets/images/animation.gif";
 
 const CardsContent = (props) => {
   let cards = props.characters.map((card) => (
@@ -15,7 +15,7 @@ const CardsContent = (props) => {
     />
   ));
   return props.isFetching ? (
-    <img className={s.preloader} src={preloader} alt="preloader" />
+    <Preloader />
   ) : (
     <div className={s.content}>{cards}</div>
   );
