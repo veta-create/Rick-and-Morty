@@ -16,3 +16,9 @@
 ::-webkit-scrollbar-thumb {
   background-color: #FFFFFF;
 }
+
+.preloader {
+  position: absolute;
+  left: 22%;
+  top: 50%;
+}

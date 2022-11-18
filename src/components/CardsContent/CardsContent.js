@@ -1,5 +1,6 @@
 import Card from "./Card/Card";
 import s from "./CardsContent.module.css";
+import preloader from "../../assets/images/animation.gif";
 
 const CardsContent = (props) => {
   let cards = props.characters.map((card) => (
@@ -13,7 +14,11 @@ const CardsContent = (props) => {
       image={card.image}
     />
   ));
-  return <div className={s.content}>{cards}</div>;
+  return props.isFetching ? (
+    <img className={s.preloader} src={preloader} alt="preloader" />
+  ) : (
+    <div className={s.content}>{cards}</div>
+  );
 };
 
 export default CardsContent;

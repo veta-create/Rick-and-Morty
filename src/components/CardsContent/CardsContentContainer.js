@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setCharactersAC } from "../../redux/cardsReducer";
+import { setCharactersAC, toggleIsFetchingAC } from "../../redux/cardsReducer";
 import { setTotalPagesCountAC } from "../../redux/paginationReducer";
 import CardsContentAPI from "./CardsContentAPI";
 
@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
   return {
     characters: state.cardsData.characters,
     currentPage: state.paginationData.currentPage,
+    isFetching: state.cardsData.isFetching,
   };
 };
 
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setTotalPagesCount: (totalPagesCount) => {
       dispatch(setTotalPagesCountAC(totalPagesCount));
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingAC(isFetching));
     },
   };
 };

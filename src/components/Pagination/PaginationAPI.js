@@ -9,9 +9,11 @@ const PaginationAPI = (props) => {
   }
   const onCurrentPageChanged = (pageNumber) => {
     props.setCurrentPage(pageNumber);
+    props.toggleIsFetching(true)
     axios
       .get(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
       .then((response) => {
+        props.toggleIsFetching(false)
         props.setCharacters(response.data.results);
         if (response.data.info.prev !== null) {
           props.changeArrowState("back", true);

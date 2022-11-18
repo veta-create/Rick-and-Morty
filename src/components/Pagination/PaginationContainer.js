@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
-import { setCharactersAC } from "../../redux/cardsReducer";
-import { changeArrowStateAC, setCurrentPageAC } from "../../redux/paginationReducer";
+import { setCharactersAC, toggleIsFetchingAC } from "../../redux/cardsReducer";
+import {
+  changeArrowStateAC,
+  setCurrentPageAC,
+} from "../../redux/paginationReducer";
 import PaginationAPI from "./PaginationAPI";
 
 const mapStateToProps = (state) => {
@@ -23,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     changeArrowState: (direction, value) => {
       dispatch(changeArrowStateAC(direction, value));
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingAC(isFetching));
     },
   };
 };
