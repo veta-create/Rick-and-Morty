@@ -27,17 +27,17 @@ const paginationReducer = (state = initialState, action) => {
   }
 };
 
-export const setTotalPagesCountAC = (totalPagesCount) => ({
+export const setTotalPagesCount = (totalPagesCount) => ({
   type: SET_TOTAL_PAGES_COUNT,
   totalPagesCount: totalPagesCount,
 });
 
-export const setCurrentPageAC = (newCurrentPage) => ({
+export const setCurrentPage = (newCurrentPage) => ({
   type: SET_CURRENT_PAGE,
   newCurrentPage,
 });
 
-export const changeArrowStateAC = (direction, value) => ({
+export const changeArrowState = (direction, value) => ({
   type: CHANGE_ARROW_STATE,
   direction,
   value,

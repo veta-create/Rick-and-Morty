@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./Pagination.module.css";
 import cn from "classnames";
-import axios from "axios";
 
 const Pagination = (props) => {
   let pages = [];

@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { setCharactersAC, toggleIsFetchingAC } from "../../redux/cardsReducer";
+import { setCharacters, toggleIsFetching } from "../../redux/cardsReducer";
 import {
-  changeArrowStateAC,
-  setCurrentPageAC,
+  changeArrowState,
+  setCurrentPage,
 } from "../../redux/paginationReducer";
 import PaginationAPI from "./PaginationAPI";
 
@@ -16,26 +16,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setCurrentPage: (newCurrentPage) => {
-      dispatch(setCurrentPageAC(newCurrentPage));
-    },
-    setCharacters: (characters) => {
-      dispatch(setCharactersAC(characters));
-    },
-    changeArrowState: (direction, value) => {
-      dispatch(changeArrowStateAC(direction, value));
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching));
-    },
-  };
-};
-
-const PaginationContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PaginationAPI);
+const PaginationContainer = connect(mapStateToProps, {
+  setCurrentPage,
+  setCharacters,
+  changeArrowState,
+  toggleIsFetching,
+})(PaginationAPI);
 
 export default PaginationContainer;

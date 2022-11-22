@@ -17,12 +17,12 @@ const cardsReducer = (state = initialState, action) => {
   }
 };
 
-export const setCharactersAC = (characters) => ({
+export const setCharacters = (characters) => ({
   type: SET_CHARACTERS,
   characters: characters,
 });
 
-export const toggleIsFetchingAC = (isFetching) => ({
+export const toggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
   isFetching: isFetching,
 });

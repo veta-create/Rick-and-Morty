@@ -1,6 +1,6 @@
 import React from "react";
-import axios from "axios";
 import Pagination from "./Pagination";
+import { charactersAPI, } from "../../api/api";
 
 const PaginationAPI = (props) => {
   let pages = [];
@@ -9,24 +9,22 @@ const PaginationAPI = (props) => {
   }
   const onCurrentPageChanged = (pageNumber) => {
     props.setCurrentPage(pageNumber);
-    props.toggleIsFetching(true)
-    axios
-      .get(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
-      .then((response) => {
-        props.toggleIsFetching(false)
-        props.setCharacters(response.data.results);
-        if (response.data.info.prev !== null) {
-          props.changeArrowState("back", true);
-        } else if (response.data.info.prev === null) {
-          props.changeArrowState("back", false);
-        }
+    props.toggleIsFetching(true);
+    charactersAPI.getCharacters(pageNumber).then((response) => {
+      props.toggleIsFetching(false);
+      props.setCharacters(response.data.results);
+      if (response.data.info.prev !== null) {
+        props.changeArrowState("back", true);
+      } else if (response.data.info.prev === null) {
+        props.changeArrowState("back", false);
+      }
 
-        if (response.data.info.next === null) {
-          props.changeArrowState("next", false);
-        } else {
-          props.changeArrowState("back", true);
-        }
-      });
+      if (response.data.info.next === null) {
+        props.changeArrowState("next", false);
+      } else {
+        props.changeArrowState("back", true);
+      }
+    });
   };
 
   return (
