@@ -50,7 +50,7 @@ const initialState = {
         name: "unknown",
       },
     ],
-    activeFilter: 1,
+    activeFilter: "n",
   },
   nameFilter: {
     name: "xxx",

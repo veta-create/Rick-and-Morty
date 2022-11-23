@@ -60,6 +60,14 @@
   border: 6px inset #54658d;
 }
 
+.filter .byName .search {
+  margin-left: 20px;
+  cursor: pointer;
+
+  background: #fff;
+  border: none;
+}
+
 .filter .byStatus {
   grid-area: status;
 }

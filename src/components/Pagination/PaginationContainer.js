@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
     paginationSize: state.paginationData.paginationSize,
     arrowNextState: state.paginationData.arrowNextState,
     arrowBackState: state.paginationData.arrowBackState,
+    statusFilterState: state.filterData.statusFilter,
   };
 };
 

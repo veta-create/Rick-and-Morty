@@ -8,7 +8,7 @@ const CardsContentAPI = (props) => {
     charactersAPI.getCharacters(1).then((response) => {
       props.toggleIsFetching(false);
       props.setCharacters(response.data.results);
-      props.setTotalPagesCount(response.info.pages);
+      props.setTotalPagesCount(response.data.info.pages);
     });
   }
 

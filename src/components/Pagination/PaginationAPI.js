@@ -1,6 +1,6 @@
 import React from "react";
 import Pagination from "./Pagination";
-import { charactersAPI, } from "../../api/api";
+import { charactersAPI } from "../../api/api";
 
 const PaginationAPI = (props) => {
   let pages = [];
@@ -10,21 +10,45 @@ const PaginationAPI = (props) => {
   const onCurrentPageChanged = (pageNumber) => {
     props.setCurrentPage(pageNumber);
     props.toggleIsFetching(true);
-    charactersAPI.getCharacters(pageNumber).then((response) => {
-      props.toggleIsFetching(false);
-      props.setCharacters(response.data.results);
-      if (response.data.info.prev !== null) {
-        props.changeArrowState("back", true);
-      } else if (response.data.info.prev === null) {
-        props.changeArrowState("back", false);
-      }
+    let currentFilter = props.statusFilterState.activeFilter;
+    let filters = props.statusFilterState.filters;
+    if (currentFilter === "n") {
+      charactersAPI.getCharacters(pageNumber).then((response) => {
+        props.setCharacters(response.data.results);
+        props.toggleIsFetching(false);
+        if (response.data.info.prev === null) {
+          props.changeArrowState("back", false);
+        }
 
-      if (response.data.info.next === null) {
-        props.changeArrowState("next", false);
-      } else {
-        props.changeArrowState("back", true);
-      }
-    });
+        if (response.data.info.next === null) {
+          props.changeArrowState("next", false);
+        } else {
+          props.changeArrowState("back", true);
+        }
+      });
+    } else if (currentFilter !== "n") {
+      let filter = filters.filter((f) => {
+        if (f.value === currentFilter) {
+          return f.name;
+        }
+      });
+      let filterValue = filter[0].name;
+      charactersAPI
+        .getCharactersByFilter(pageNumber, filterValue, null)
+        .then((response) => {
+          props.setCharacters(response.data.results);
+          props.toggleIsFetching(false);
+          if (response.data.info.prev === null) {
+            props.changeArrowState("back", false);
+          }
+
+          if (response.data.info.next === null) {
+            props.changeArrowState("next", false);
+          } else {
+            props.changeArrowState("back", true);
+          }
+        });
+    }
   };
 
   return (

@@ -1,5 +1,5 @@
-import axios from "axios";
 import React from "react";
+import { charactersAPI } from "../../api/api";
 import s from "./Filter.module.css";
 
 const Filter = (props) => {
@@ -7,6 +7,20 @@ const Filter = (props) => {
     let value = event.target.value;
     let id = event.target.id;
     props.switchingFilters(id, value);
+    let currentFilter = props.filterData.statusFilter.activeFilter;
+    let filters = props.filterData.statusFilter.filters;
+    let filter = filters.filter((f) => {
+      if (f.value === currentFilter) {
+        return f;
+      }
+    });
+    let filterValue = filter[0].name;
+    console.log(filterValue);
+    charactersAPI
+      .getCharactersByFilter(props.currentPage, filterValue, null)
+      .then((response) => {
+        props.setCharacters(response.data.results);
+      });
   };
 
   const onChangeFilterByName = (event) => {
@@ -52,6 +66,7 @@ const Filter = (props) => {
             value={props.filterData.nameFilter.name}
             onChange={onChangeFilterByName}
           ></input>
+          <button className={s.search}>search</button>
         </div>
       </div>
 
