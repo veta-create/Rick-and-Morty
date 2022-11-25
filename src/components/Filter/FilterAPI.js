@@ -27,7 +27,7 @@ const FilterAPI = (props) => {
   return (
     <Filter
       filterData={props.filterData}
-      changeFilterByName={props.changeFilterByName}
+      changeNameFilterText={props.changeNameFilterText}
       switchingFilters={switchingFilters}
       setTotalPagesCount={props.setTotalPagesCount}
     />

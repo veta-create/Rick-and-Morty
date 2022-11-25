@@ -1,3 +1,6 @@
+import { charactersAPI } from "../api/api";
+import { setTotalPagesCount } from "./paginationReducer";
+
 const SET_CHARACTERS = "SET_CHARACTERS";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
@@ -27,4 +30,14 @@ export const toggleIsFetching = (isFetching) => ({
   isFetching: isFetching,
 });
 
+export const getCharactersThunkCreator = (pageNumber) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    charactersAPI.getCharacters(pageNumber).then((response) => {
+      dispatch(toggleIsFetching(false));
+      dispatch(setCharacters(response.data.results));
+      dispatch(setTotalPagesCount(response.data.info.pages));
+    });
+  };
+};
 export default cardsReducer;

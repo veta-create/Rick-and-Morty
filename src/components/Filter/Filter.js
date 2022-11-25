@@ -9,7 +9,7 @@ const Filter = (props) => {
 
   const onChangeFilterByName = (event) => {
     const newText = event.target.value;
-    props.changeFilterByName(newText);
+    props.changeNameFilterText(newText);
   };
 
   return (
