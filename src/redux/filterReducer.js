@@ -78,13 +78,13 @@ const filterReducer = (state = initialState, action) => {
   }
 };
 
-export const switchActiveFilterAC = (id, value) => ({
+export const switchActiveFilters = (id, value) => ({
   type: SWITCH_ACTIVE_FILTER,
   id: id,
   value: value,
 });
 
-export const changeNameFilterTextAC = (newText) => ({
+export const changeNameFilterText = (newText) => ({
   type: CHANGE_NAME_FILTER_TEXT,
   value: newText,
 });

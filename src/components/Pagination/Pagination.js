@@ -4,7 +4,7 @@ import cn from "classnames";
 
 const Pagination = (props) => {
   let pages = [];
-  for (let i = 0; i < props.paginationSize; i++) {
+  for (let i = 0; i < props.totalPagesCount; i++) {
     pages.push(i + 1);
   }
 

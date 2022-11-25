@@ -3,6 +3,7 @@ import { setCharacters, toggleIsFetching } from "../../redux/cardsReducer";
 import {
   changeArrowState,
   setCurrentPage,
+  setTotalPagesCount,
 } from "../../redux/paginationReducer";
 import PaginationAPI from "./PaginationAPI";
 
@@ -22,6 +23,7 @@ const PaginationContainer = connect(mapStateToProps, {
   setCharacters,
   changeArrowState,
   toggleIsFetching,
+  setTotalPagesCount
 })(PaginationAPI);
 
 export default PaginationContainer;

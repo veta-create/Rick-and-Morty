@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
 import {
-  changeNameFilterTextAC,
-  switchActiveFilterAC,
+  changeNameFilterText,
+  switchActiveFilters,
 } from "../../redux/filterReducer";
 import { setCharacters } from "../../redux/cardsReducer";
-import Filter from "./Filter";
+import FilterAPI from "./FilterAPI";
+import { setTotalPagesCount } from "../../redux/paginationReducer";
 
 const mapStateToProps = (state) => {
   return {
@@ -13,20 +14,28 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    switchingFilters: (id, value) => {
-      dispatch(switchActiveFilterAC(id, value));
-    },
-    changeFilterByName: (newText) => {
-      dispatch(changeNameFilterTextAC(newText));
-    },
-    setCharacters: (characters) => {
-      dispatch(setCharacters(characters));
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     switchingFilters: (id, value) => {
+//       dispatch(switchActiveFilterAC(id, value));
+//     },
+//     changeFilterByName: (newText) => {
+//       dispatch(changeNameFilterTextAC(newText));
+//     },
+//     setCharacters: (characters) => {
+//       dispatch(setCharacters(characters));
+//     },
+//     setTotalPagesCount: (totalPagesCount) => {
+//       dispatch(setTotalPagesCount(totalPagesCount));
+//     },
+//   };
+// };
 
-const FilterContainer = connect(mapStateToProps, mapDispatchToProps)(Filter);
+const FilterContainer = connect(mapStateToProps, {
+  switchActiveFilters,
+  changeNameFilterText,
+  setCharacters,
+  setTotalPagesCount,
+})(FilterAPI);
 
 export default FilterContainer;

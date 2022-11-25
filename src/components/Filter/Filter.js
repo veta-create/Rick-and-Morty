@@ -4,27 +4,11 @@ import s from "./Filter.module.css";
 
 const Filter = (props) => {
   const onSwitchingFilters = (event) => {
-    let value = event.target.value;
-    let id = event.target.id;
-    props.switchingFilters(id, value);
-    let currentFilter = props.filterData.statusFilter.activeFilter;
-    let filters = props.filterData.statusFilter.filters;
-    let filter = filters.filter((f) => {
-      if (f.value === currentFilter) {
-        return f;
-      }
-    });
-    let filterValue = filter[0].name;
-    console.log(filterValue);
-    charactersAPI
-      .getCharactersByFilter(props.currentPage, filterValue, null)
-      .then((response) => {
-        props.setCharacters(response.data.results);
-      });
+    props.switchingFilters(event);
   };
 
   const onChangeFilterByName = (event) => {
-    let newText = event.target.value;
+    const newText = event.target.value;
     props.changeFilterByName(newText);
   };
 
@@ -69,9 +53,6 @@ const Filter = (props) => {
           <button className={s.search}>search</button>
         </div>
       </div>
-
-      {/* <select value={props.filterData.activeFilter} onChange={handleSelectChange}>
-      </select> */}
     </div>
   );
 };

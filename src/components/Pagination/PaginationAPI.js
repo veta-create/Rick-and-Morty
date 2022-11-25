@@ -36,6 +36,8 @@ const PaginationAPI = (props) => {
       charactersAPI
         .getCharactersByFilter(pageNumber, filterValue, null)
         .then((response) => {
+          console.log(response.data.info.pages);
+          // props.setTotalPagesCount(response.data.if)
           props.setCharacters(response.data.results);
           props.toggleIsFetching(false);
           if (response.data.info.prev === null) {
@@ -55,6 +57,8 @@ const PaginationAPI = (props) => {
     <Pagination
       onCurrentPageChanged={onCurrentPageChanged}
       paginationSize={props.paginationSize}
+      setTotalPagesCount={props.setTotalPagesCount}
+      totalPagesCount={props.totalPagesCount}
       arrowBackState={props.arrowBackState}
       currentPage={props.currentPage}
       arrowNextState={props.arrowNextState}
