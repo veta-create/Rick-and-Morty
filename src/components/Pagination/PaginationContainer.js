@@ -16,7 +16,6 @@ const mapStateToProps = (state) => {
   return {
     totalPagesCount: state.paginationData.totalPagesCount,
     currentPage: state.paginationData.currentPage,
-    paginationSize: state.paginationData.paginationSize,
     filterData: state.filterData,
   };
 };

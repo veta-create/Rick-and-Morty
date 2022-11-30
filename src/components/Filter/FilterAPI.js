@@ -1,4 +1,3 @@
-import { charactersAPI } from "../../api/api";
 import Filter from "./Filter";
 
 const FilterAPI = (props) => {
@@ -14,13 +13,11 @@ const FilterAPI = (props) => {
       }
     });
     let filterValue = filter[0].name;
-    console.log(filterValue);
-    charactersAPI
-      .getCharactersByFilter(props.currentPage, filterValue, null)
-      .then((response) => {
-        props.setTotalPagesCount(response.data.info.pages);
-        props.setCharacters(response.data.results);
-      });
+    if (currentFilter === "all") {
+      props.getCharactersThunkCreator(1);
+    } else {
+      props.getCharactersByFilterThunkCreator(1, filterValue, null);
+    }
   };
 
   return (
@@ -28,7 +25,6 @@ const FilterAPI = (props) => {
       filterData={props.filterData}
       changeNameFilterText={props.changeNameFilterText}
       switchingFilters={switchingFilters}
-      setTotalPagesCount={props.setTotalPagesCount}
     />
   );
 };

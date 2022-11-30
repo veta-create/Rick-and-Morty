@@ -1,5 +1,4 @@
 import React from "react";
-import { charactersAPI } from "../../api/api";
 import s from "./Filter.module.css";
 
 const Filter = (props) => {

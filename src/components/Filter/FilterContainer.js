@@ -3,9 +3,11 @@ import {
   changeNameFilterText,
   switchActiveFilters,
 } from "../../redux/filterReducer";
-import { setCharacters } from "../../redux/cardsReducer";
+import {
+  getCharactersByFilterThunkCreator,
+  getCharactersThunkCreator,
+} from "../../redux/cardsReducer";
 import FilterAPI from "./FilterAPI";
-import { setTotalPagesCount } from "../../redux/paginationReducer";
 
 const mapStateToProps = (state) => {
   return {
@@ -17,8 +19,8 @@ const mapStateToProps = (state) => {
 const FilterContainer = connect(mapStateToProps, {
   switchActiveFilters,
   changeNameFilterText,
-  setCharacters,
-  setTotalPagesCount,
+  getCharactersThunkCreator,
+  getCharactersByFilterThunkCreator,
 })(FilterAPI);
 
 export default FilterContainer;

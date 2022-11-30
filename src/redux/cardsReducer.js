@@ -43,14 +43,11 @@ export const getCharactersThunkCreator = (pageNumber) => {
 
 export const getCharactersByFilterThunkCreator = (pageNumber, status, name) => {
   return (dispatch) => {
-    debugger;
     dispatch(toggleIsFetching(true));
     charactersAPI
       .getCharactersByFilter(pageNumber, status, name)
       .then((response) => {
-        if (pageNumber > response.data.info.pages) {
-          dispatch(setCurrentPage(pageNumber));
-        }
+        dispatch(setCurrentPage(1));
         dispatch(setTotalPagesCount(response.data.info.pages));
         dispatch(toggleIsFetching(false));
         dispatch(setCharacters(response.data.results));
