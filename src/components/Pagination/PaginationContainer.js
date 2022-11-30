@@ -1,5 +1,10 @@
 import { connect } from "react-redux";
-import { setCharacters, toggleIsFetching } from "../../redux/cardsReducer";
+import {
+  getCharactersByFilterThunkCreator,
+  getCharactersThunkCreator,
+  setCharacters,
+  toggleIsFetching,
+} from "../../redux/cardsReducer";
 import {
   changeArrowState,
   setCurrentPage,
@@ -12,9 +17,7 @@ const mapStateToProps = (state) => {
     totalPagesCount: state.paginationData.totalPagesCount,
     currentPage: state.paginationData.currentPage,
     paginationSize: state.paginationData.paginationSize,
-    arrowNextState: state.paginationData.arrowNextState,
-    arrowBackState: state.paginationData.arrowBackState,
-    statusFilterState: state.filterData.statusFilter,
+    filterData: state.filterData,
   };
 };
 
@@ -23,7 +26,9 @@ const PaginationContainer = connect(mapStateToProps, {
   setCharacters,
   changeArrowState,
   toggleIsFetching,
-  setTotalPagesCount
+  setTotalPagesCount,
+  getCharactersThunkCreator,
+  getCharactersByFilterThunkCreator,
 })(PaginationAPI);
 
 export default PaginationContainer;

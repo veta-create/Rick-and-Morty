@@ -2,7 +2,6 @@ import { charactersAPI } from "../../api/api";
 import Filter from "./Filter";
 
 const FilterAPI = (props) => {
-  debugger;
   const switchingFilters = (event) => {
     let value = event.target.value;
     let id = event.target.id;

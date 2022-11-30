@@ -6,8 +6,8 @@ const initialState = {
     filters: [
       {
         id: 1,
-        value: 1,
-        name: "none",
+        value: 'a',
+        name: "all",
       },
       {
         id: 2,
@@ -25,14 +25,14 @@ const initialState = {
         name: "status",
       },
     ],
-    activeFilter: 1,
+    activeFilter: "all",
   },
   statusFilter: {
     filters: [
       {
         id: 1,
-        value: "n",
-        name: "none",
+        value: "all",
+        name: "all",
       },
       {
         id: 2,
@@ -50,10 +50,10 @@ const initialState = {
         name: "unknown",
       },
     ],
-    activeFilter: "n",
+    activeFilter: "a",
   },
   nameFilter: {
-    name: "xxx",
+    name: "",
   },
 };
 

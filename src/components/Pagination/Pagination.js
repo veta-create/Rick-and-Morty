@@ -10,18 +10,6 @@ const Pagination = (props) => {
 
   return (
     <div className={s.pagination}>
-      {props.arrowBackState ? (
-        <div
-          onClick={(e) => {
-            props.onCurrentPageChanged(props.currentPage - 1);
-          }}
-          className={s.prev}
-        >
-          <div></div>
-        </div>
-      ) : (
-        ""
-      )}
       <div className={s.pages}>
         {pages.map((p) => (
           <span
@@ -34,19 +22,6 @@ const Pagination = (props) => {
           </span>
         ))}
       </div>
-
-      {props.arrowNextState ? (
-        <div
-          onClick={(e) => {
-            props.onCurrentPageChanged(props.currentPage + 1);
-          }}
-          className={s.next}
-        >
-          <div></div>
-        </div>
-      ) : (
-        ""
-      )}
     </div>
   );
 };

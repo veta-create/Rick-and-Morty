@@ -14,23 +14,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     switchingFilters: (id, value) => {
-//       dispatch(switchActiveFilterAC(id, value));
-//     },
-//     changeFilterByName: (newText) => {
-//       dispatch(changeNameFilterTextAC(newText));
-//     },
-//     setCharacters: (characters) => {
-//       dispatch(setCharacters(characters));
-//     },
-//     setTotalPagesCount: (totalPagesCount) => {
-//       dispatch(setTotalPagesCount(totalPagesCount));
-//     },
-//   };
-// };
-
 const FilterContainer = connect(mapStateToProps, {
   switchActiveFilters,
   changeNameFilterText,

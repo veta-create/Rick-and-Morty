@@ -1,3 +1,5 @@
+import { charactersAPI } from "../api/api";
+
 const SET_TOTAL_PAGES_COUNT = "SET_TOTAL_PAGES_COUNT";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const CHANGE_ARROW_STATE = "CHANGE_ARROW_STATE";

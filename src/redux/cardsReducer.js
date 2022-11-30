@@ -1,5 +1,5 @@
 import { charactersAPI } from "../api/api";
-import { setTotalPagesCount } from "./paginationReducer";
+import { setCurrentPage, setTotalPagesCount } from "./paginationReducer";
 
 const SET_CHARACTERS = "SET_CHARACTERS";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
@@ -38,6 +38,23 @@ export const getCharactersThunkCreator = (pageNumber) => {
       dispatch(setCharacters(response.data.results));
       dispatch(setTotalPagesCount(response.data.info.pages));
     });
+  };
+};
+
+export const getCharactersByFilterThunkCreator = (pageNumber, status, name) => {
+  return (dispatch) => {
+    debugger;
+    dispatch(toggleIsFetching(true));
+    charactersAPI
+      .getCharactersByFilter(pageNumber, status, name)
+      .then((response) => {
+        if (pageNumber > response.data.info.pages) {
+          dispatch(setCurrentPage(pageNumber));
+        }
+        dispatch(setTotalPagesCount(response.data.info.pages));
+        dispatch(toggleIsFetching(false));
+        dispatch(setCharacters(response.data.results));
+      });
   };
 };
 export default cardsReducer;
