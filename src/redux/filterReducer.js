@@ -2,27 +2,27 @@ const SWITCH_ACTIVE_FILTER = "SWITCH_ACTIVE_FILTER";
 const CHANGE_NAME_FILTER_TEXT = "CHANGE_NAME_FILTER_TEXT";
 
 const initialState = {
-  speciesFilter: {
+  genderFilter: {
     filters: [
       {
         id: 1,
-        value: 'a',
+        value: "all",
         name: "all",
       },
       {
         id: 2,
-        value: 2,
-        name: "name",
+        value: "m",
+        name: "male",
       },
       {
         id: 3,
-        value: 3,
-        name: "species",
+        value: "f",
+        name: "female",
       },
       {
         id: 4,
-        value: 4,
-        name: "status",
+        value: "u",
+        name: "unknown",
       },
     ],
     activeFilter: "all",
@@ -65,10 +65,10 @@ const filterReducer = (state = initialState, action) => {
           ...state,
           ...(state.statusFilter.activeFilter = action.value),
         };
-      } else if (action.id === "species") {
+      } else if (action.id === "gender") {
         return {
           ...state,
-          ...(state.speciesFilter.activeFilter = action.value),
+          ...(state.genderFilter.activeFilter = action.value),
         };
       }
     case CHANGE_NAME_FILTER_TEXT:

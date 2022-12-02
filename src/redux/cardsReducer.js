@@ -34,6 +34,7 @@ export const getCharactersThunkCreator = (pageNumber) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
     charactersAPI.getCharacters(pageNumber).then((response) => {
+      dispatch(setCurrentPage(pageNumber))
       dispatch(toggleIsFetching(false));
       dispatch(setCharacters(response.data.results));
       dispatch(setTotalPagesCount(response.data.info.pages));
@@ -41,13 +42,13 @@ export const getCharactersThunkCreator = (pageNumber) => {
   };
 };
 
-export const getCharactersByFilterThunkCreator = (pageNumber, status, name) => {
+export const getCharactersByFilterThunkCreator = (pageNumber, status, gender, name) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
     charactersAPI
-      .getCharactersByFilter(pageNumber, status, name)
+      .getCharactersByFilter(pageNumber, status, gender, name)
       .then((response) => {
-        dispatch(setCurrentPage(1));
+        dispatch(setCurrentPage(pageNumber));
         dispatch(setTotalPagesCount(response.data.info.pages));
         dispatch(toggleIsFetching(false));
         dispatch(setCharacters(response.data.results));

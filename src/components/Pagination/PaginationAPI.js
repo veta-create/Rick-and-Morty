@@ -18,14 +18,19 @@ const PaginationAPI = (props) => {
         return f.value === props.filterData.statusFilter.activeFilter;
       }
     );
+    const genderFilterState = props.filterData.genderFilter.filters.filter(
+      (f) => {
+        return f.value === props.filterData.genderFilter.activeFilter;
+      }
+    );
 
-    console.log("statusState", statusFilterState);
     if (checkForFilter) {
       props.getCharactersThunkCreator(pageNumber);
     } else {
       props.getCharactersByFilterThunkCreator(
         pageNumber,
         statusFilterState[0].name,
+        genderFilterState[0].name,
         null
       );
     }

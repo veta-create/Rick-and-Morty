@@ -29,14 +29,14 @@ const Filter = (props) => {
             ))}
           </select>
         </div>
-        <div className={s.bySpecies}>
-          species:
+        <div className={s.byGender}>
+          gender:
           <select
-            id="species"
-            value={props.filterData.speciesFilter.activeFilter}
+            id="gender"
+            value={props.filterData.genderFilter.activeFilter}
             onChange={onSwitchingFilters}
           >
-            {props.filterData.speciesFilter.filters.map((o) => (
+            {props.filterData.genderFilter.filters.map((o) => (
               <option key={o.id} id={o.id} value={o.value}>
                 {o.name}
               </option>
