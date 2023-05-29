@@ -12,7 +12,6 @@ import FilterAPI from "./FilterAPI";
 const mapStateToProps = (state) => {
   return {
     filterData: state.filterData,
-    currentPage: state.paginationData.currentPage,
   };
 };
 

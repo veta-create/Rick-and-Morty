@@ -47,9 +47,11 @@ const Filter = (props) => {
           name:{" "}
           <input
             value={props.filterData.nameFilter.name}
-            onChange={onChangeFilterByName}
+            onChange={(event) => {
+              onChangeFilterByName(event);
+              onSwitchingFilters(event);
+              }}
           ></input>
-          <button className={s.search}>search</button>
         </div>
       </div>
     </div>

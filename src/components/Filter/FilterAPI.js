@@ -21,14 +21,15 @@ const FilterAPI = (props) => {
       }
     })
     const genderFilterValue = genderFilter[0].name;
-    if (currentStatusFilter === "all" && currentGenderFilter === "all") {
+    const currentNameFilter = props.filterData.nameFilter.name;
+    if (currentStatusFilter === "all" && currentGenderFilter === "all" && currentNameFilter === "") {
       props.getCharactersThunkCreator(1);
     } else {
       props.getCharactersByFilterThunkCreator(
         1,
         statusFilterValue,
         genderFilterValue,
-        null
+        currentNameFilter
       );
     }
   };
