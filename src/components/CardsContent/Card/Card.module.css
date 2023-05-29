@@ -3,7 +3,6 @@
   width: 15%;
   min-width: 145px;
   max-width: 230px;
-  height: 45%;
   min-height: 270px;
   max-height: 320px;
   margin-top: 1%;
@@ -11,7 +10,6 @@
   font-weight: bold;
   text-align: left;
   cursor: pointer;
-
   color: #fff;
   background-image: url(C:\Users\Veta\Desktop\front\Rick-and-Morty\src\assets\images\card.jpg);
   background-repeat: no-repeat;
